@@ -42,15 +42,6 @@ class ModLoader {
         return sortedContributions;
     }
 
-    public static function getModNameFromPath(mod_path:String) {
-        for (mod in loadedMods) {
-            if (mod.path == mod_path) {
-                return mod.name;
-            }
-        }
-        return "";
-    }
-
 }
 
 class NonExistantModException extends Exception {}

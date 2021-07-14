@@ -32,6 +32,8 @@ class Mod {
                     contributions.push(new ModContribution(path, ModContribution.TYPE_WEEK, cont.location));
                 case 'intro-text':
                     contributions.push(new ModContribution(path, ModContribution.TYPE_INTRO_TEXT, cont.location));
+                case 'asset-swaps':
+                    contributions.push(new ModContribution(path, ModContribution.TYPE_ASSET_SWAPS, cont.location));
                 }
             }
         }
@@ -44,7 +46,6 @@ class Mod {
                 sortedContributions.push(contribution);
             }
         }
-        trace(sortedContributions);
         return sortedContributions;
     }
 }

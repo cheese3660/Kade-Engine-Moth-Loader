@@ -19,8 +19,10 @@ class Paths
 	{
 		currentLevel = name.toLowerCase();
 	}
-
-	static function getPath(file:String, type:AssetType, library:Null<String>)
+	static function getPath(file:String, type:AssetType, library:Null<String>) {
+		return AssetSwapper.swap(getPathRaw(file, type, library));
+	}
+	static function getPathRaw(file:String, type:AssetType, library:Null<String>)
 	{
 		if (library != null)
 			return getLibraryPath(file, library);
@@ -148,7 +150,6 @@ class Paths
 	//Returns a json file that contains the Flx Atlas, the image, and the json describing animation keys and such
 	static public function getCharacterJSON(key:String, basePath:String="images/characters", ?library:String) {
 		var jsonPath = file('$basePath/$key.json', TEXT, library);
-		trace(jsonPath);
 		var jsonText = "";
 		if (Assets.exists(jsonPath)) {
 			jsonText = Assets.getText(jsonPath);

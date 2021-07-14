@@ -18,7 +18,6 @@ class CharacterList {
         //trace(jsonText);
 		var jsonDynamic:DynamicAccess<Dynamic> = Json.parse(jsonText);
         for (pair in jsonDynamic.keyValueIterator()) {
-            trace(pair);
             cache[pair.key] = Paths.getCharacterJSON(pair.value,"images/characters","shared");
         }
         for (contribution in ModLoader.getContributionsOfType(ModContribution.TYPE_CHARACTER_LIST)) {

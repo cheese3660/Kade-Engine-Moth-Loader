@@ -9,6 +9,10 @@ class ModContribution {
     public static inline var TYPE_CHARACTER_LIST:ModContributionType = 0;
     public static inline var TYPE_WEEK:ModContributionType = 1;
     public static inline var TYPE_INTRO_TEXT:ModContributionType = 2;
+    public static inline var TYPE_ASSET_SWAPS:ModContributionType = 3;  //Asset swaps are described in a json file in the asset swap location
+                                                                        //They can be used to replace any asset in the base game (or other mods), but its kinda a clunky system, and for common enough swaps I might just add a seperate contribution type
+                                                                        //They also are not recursive and just work by mapping one location to the mods location
+                                                                        //The original asset needs "x:x/.../..." shit
     public var mod_path:String;
     public var contribution_type:ModContributionType;
     public var contribution_location:String; //A relative path within the mod, points to a folder
@@ -21,7 +25,7 @@ class ModContribution {
     }
     function checkContributionByPath(contribution_path:String) {
         if (!Assets.exists(contribution_path)) {
-            throw new NonExistantContributionException('Cannot find asset "$contribution_path" required by mod: ${ModLoader.getModNameFromPath(mod_path)}');
+            throw new NonExistantContributionException('Cannot find asset "$contribution_path" required by mod: ${mod_path}');
         }
     }
     public function check() {
@@ -32,6 +36,8 @@ class ModContribution {
             checkContributionByPath(Paths.file('$mod_path/$contribution_location/week.json', TEXT, "mods"));
         case TYPE_INTRO_TEXT:
             checkContributionByPath(Paths.file('$mod_path/$contribution_location', TEXT, "mods"));
+        case TYPE_ASSET_SWAPS:
+            checkContributionByPath(Paths.file('$mod_path/$contribution_location/swapinfo.json', TEXT, "mods"));
         }
     }
 }

@@ -5,6 +5,10 @@
         {
             "type": "intro-text",
             "location": "intro.txt"
+        },
+        {
+            "type": "asset-swaps",
+            "location": "assets"
         }
     ]
 }

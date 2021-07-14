@@ -67,13 +67,15 @@ class ModLoaderState extends MusicBeatState {
                 ModLoader.loadMod(mod);
                 modsLoaded++;
             }
+            trace("building asset swap map");
+            AssetSwapper.initialize();
+            trace("caching character data");
+            CharacterList.construct();
         } catch (e) {
             hadException = true;
             exception = e;
             while (true) {}
         }
-        trace("caching character data");
-        CharacterList.construct();
         FlxG.switchState(new TitleState());
     }
 }

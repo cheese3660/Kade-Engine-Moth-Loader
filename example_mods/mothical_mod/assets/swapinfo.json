@@ -1,0 +1,6 @@
+[
+    {
+        "from": "assets/data/introText.txt",
+        "to": "intro.txt"
+    }
+]
