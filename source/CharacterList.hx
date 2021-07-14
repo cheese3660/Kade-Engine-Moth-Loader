@@ -21,21 +21,17 @@ class CharacterList {
             trace(pair);
             cache[pair.key] = Paths.getCharacterJSON(pair.value,"images/characters","shared");
         }
-        for (mod in ModLoader.loadedMods) {
-            var p = mod.path;
-            for (contribution in mod.contributions) {
-                if (contribution.contribution_type == ModContribution.TYPE_CHARACTER_LIST) {
-                    var p2 = contribution.contribution_location;
-                    var f2 = Paths.file('$p/$p2/character_list.json',TEXT,"mods");
-                    var jtxt2 = "";
-                    if (Assets.exists(f2, TEXT)) {
-                        jtxt2 = Assets.getText(f2);
-                    }
-                    var modDynamic:DynamicAccess<Dynamic> = Json.parse(jtxt2);
-                    for (pair in modDynamic.keyValueIterator()) {
-                        cache[pair.key] = Paths.getCharacterJSON(pair.value,'$p/$p2',"mods");
-                    }
-                }
+        for (contribution in ModLoader.getContributionsOfType(ModContribution.TYPE_CHARACTER_LIST)) {
+            var p = contribution.mod_path;
+            var p2 = contribution.contribution_location;
+            var f2 = Paths.file('$p/$p2/character_list.json',TEXT,"mods");
+            var jtxt2 = "";
+            if (Assets.exists(f2, TEXT)) {
+                jtxt2 = Assets.getText(f2);
+            }
+            var modDynamic:DynamicAccess<Dynamic> = Json.parse(jtxt2);
+            for (pair in modDynamic.keyValueIterator()) {
+                cache[pair.key] = Paths.getCharacterJSON(pair.value,'$p/$p2',"mods");
             }
         }
     }

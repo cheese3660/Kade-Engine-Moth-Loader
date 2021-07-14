@@ -1,5 +1,6 @@
 package;
 
+import ModContribution.ModContributionType;
 import haxe.Json;
 import haxe.Exception;
 import lime.utils.Assets;
@@ -27,9 +28,29 @@ class ModLoader {
             loadedMods.push(new Mod(mod,Json.parse(text)));
         } else {
             trace('Nonexistant mod "$mod"');
-            throw new NonExistentModException('There is no mod folder named "$mod"');
+            throw new NonExistantModException('There is no mod folder named "$mod"');
         }
     }
+    
+    public static function getContributionsOfType(type:ModContributionType) {
+        var sortedContributions:Array<ModContribution> = [];
+        for (mod in loadedMods) {
+            for (contribution in mod.getContributionsOfType(type)) {
+                sortedContributions.push(contribution);
+            }
+        }
+        return sortedContributions;
+    }
+
+    public static function getModNameFromPath(mod_path:String) {
+        for (mod in loadedMods) {
+            if (mod.path == mod_path) {
+                return mod.name;
+            }
+        }
+        return "";
+    }
+
 }
 
-class NonExistentModException extends Exception {}
+class NonExistantModException extends Exception {}

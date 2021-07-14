@@ -1,17 +1,38 @@
 package;
 
+import openfl.utils.Assets;
 import haxe.DynamicAccess;
-
+import haxe.Exception;
 typedef ModContributionType = Int;
 
 class ModContribution {
     public static inline var TYPE_CHARACTER_LIST:ModContributionType = 0;
     public static inline var TYPE_WEEK:ModContributionType = 1;
+    public static inline var TYPE_INTRO_TEXT:ModContributionType = 2;
+    public var mod_path:String;
     public var contribution_type:ModContributionType;
     public var contribution_location:String; //A relative path within the mod, points to a folder
     // public var contribution:DynamicAccess<Dynamic>;
-    public function new(type:ModContributionType,loc:String) {
+    public function new(path:String, type:ModContributionType,loc:String) {
+        mod_path = path;
         contribution_type = type;
         contribution_location = loc;
+        check();
+    }
+    function checkContributionByPath(contribution_path:String) {
+        if (!Assets.exists(contribution_path)) {
+            throw new NonExistantContributionException('Cannot find asset "$contribution_path" required by mod: ${ModLoader.getModNameFromPath(mod_path)}');
+        }
+    }
+    public function check() {
+        switch (contribution_type) {
+        case TYPE_CHARACTER_LIST:
+            checkContributionByPath(Paths.file('$mod_path/$contribution_location/character_list.json', TEXT, "mods"));
+        case TYPE_WEEK:
+            checkContributionByPath(Paths.file('$mod_path/$contribution_location/week.json', TEXT, "mods"));
+        case TYPE_INTRO_TEXT:
+            checkContributionByPath(Paths.file('$mod_path/$contribution_location', TEXT, "mods"));
+        }
     }
 }
+class NonExistantContributionException extends Exception {}

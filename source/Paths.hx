@@ -73,9 +73,9 @@ class Paths
 		return getPath('data/$key.png', IMAGE, library);
 	}
 
-	inline static public function txt(key:String, ?library:String)
+	inline static public function txt(key:String, basePath:String="data", ?library:String)
 	{
-		return getPath('data/$key.txt', TEXT, library);
+		return getPath('$basePath/$key.txt', TEXT, library);
 	}
 
 	inline static public function xml(key:String, ?library:String)
@@ -165,4 +165,5 @@ class Paths
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, "images", library), file('images/$key.txt', library));
 	}
+
 }

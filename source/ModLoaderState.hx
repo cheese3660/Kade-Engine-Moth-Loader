@@ -41,9 +41,9 @@ class ModLoaderState extends MusicBeatState {
         trace("starting moth loader");
         toLoadList = ModLoader.getModsToBeLoaded();
         modsToBeLoaded = toLoadList.length;
-        // sys.thread.Thread.create(() -> {
+        sys.thread.Thread.create(() -> {
             loadMods(); //Don't multithread it for debugging reasons
-        // });
+        });
     }
 
 
@@ -70,6 +70,7 @@ class ModLoaderState extends MusicBeatState {
         } catch (e) {
             hadException = true;
             exception = e;
+            while (true) {}
         }
         trace("caching character data");
         CharacterList.construct();

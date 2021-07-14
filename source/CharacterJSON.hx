@@ -182,7 +182,7 @@ class CharacterJSON {
             return [];
         }
     }
-
+    
     private function addSingleAnimation(to:Character, animation:DynamicAccess<Dynamic>, ani:FlxAnimationController) {
         var animationName: String = animation.get("name");
         var animationMode: String = animation.get("mode");

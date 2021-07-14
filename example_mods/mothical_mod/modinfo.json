@@ -3,12 +3,8 @@
     "version": "0.1",
     "contributes": [
         {
-            "type": "characters",
-            "location": "characters"
-        },
-        {
-            "type": "week",
-            "location": "weeks/pride_week"
+            "type": "intro-text",
+            "location": "intro.txt"
         }
     ]
 }

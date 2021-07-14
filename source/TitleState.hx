@@ -53,10 +53,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
-		
 		#if sys
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
@@ -251,16 +247,27 @@ class TitleState extends MusicBeatState
 		// credGroup.add(credTextShit);
 	}
 
-	function getIntroTextShit():Array<Array<String>>
-	{
-		var fullText:String = Assets.getText(Paths.txt('introText'));
-
-		var firstArray:Array<String> = fullText.split('\n');
-		var swagGoodArray:Array<Array<String>> = [];
-
+	function parseIntroTextData(data:String):Array<Array<String>> {
+		var firstArray:Array<String> = data.split('\n');
+		var secondArray:Array<Array<String>> = [];
 		for (i in firstArray)
 		{
-			swagGoodArray.push(i.split('--'));
+			secondArray.push(i.split('--'));
+		}
+		return secondArray;
+	}
+
+	function getIntroTextShit():Array<Array<String>>
+	{
+		var builtInText:String = Assets.getText(Paths.txt('introText'));
+		var swagGoodArray:Array<Array<String>> = parseIntroTextData(builtInText);
+		for (contribution in ModLoader.getContributionsOfType(ModContribution.TYPE_INTRO_TEXT)) {
+			var p = Paths.file('${contribution.mod_path}/${contribution.contribution_location}',TEXT,"mods");
+			var modText:String = Assets.getText(p); //TODO: Mod file missing error handling
+			var toAppendArray = parseIntroTextData(modText);
+			for (data in toAppendArray) {
+				swagGoodArray.push(data);
+			}
 		}
 
 		return swagGoodArray;
@@ -430,30 +437,45 @@ class TitleState extends MusicBeatState
 				deleteCoolText();
 				ngSpr.visible = false;
 			// credTextShit.visible = false;
-
-			// credTextShit.text = 'Shoutouts Tom Fulp';
-			// credTextShit.screenCenter();
 			case 9:
-				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
+				if (Main.watermarks)
+					createCoolText(['Moth Loader', 'by']);
+				else 
+					createCoolText([curWacky[0]]);
 			case 11:
-				addMoreText(curWacky[1]);
-			// credTextShit.text += '\nlmao';
+				if (Main.watermarks)
+					addMoreText('Cheese');
+				else
+					addMoreText(curWacky[1]);
 			case 12:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = "Friday";
-			// credTextShit.screenCenter();
 			case 13:
-				addMoreText('Friday');
+				if (Main.watermarks)
+					createCoolText([curWacky[0]]);
+				else
+					createCoolText(['Friday']);
 			// credTextShit.visible = true;
 			case 14:
-				addMoreText('Night');
+				if (!Main.watermarks)
+					addMoreText('Night');
 			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
+				if (Main.watermarks)
+					addMoreText(curWacky[1])
+				else
+					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
 			case 16:
+				if (Main.watermarks)
+					deleteCoolText();
+				else
+					skipIntro();
+			case 17:
+				createCoolText(['Friday']);
+			case 18:
+				addMoreText('Night');
+			case 19:
+				addMoreText('Funkin');
+			case 20:
 				skipIntro();
 		}
 	}
