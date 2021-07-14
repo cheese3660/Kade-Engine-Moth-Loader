@@ -1,0 +1,59 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "Senpai Idle",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "SENPAI UP NOTE",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                5,
+                37
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "SENPAI LEFT NOTE",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                40,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "SENPAI RIGHT NOTE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "SENPAI DOWN NOTE",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                14,
+                0
+            ]
+        }
+    ],
+    "startingAnimation": "idle",
+    "antialiasing": false,
+    "flipWhenPlayer": true,
+    "isBF": false,
+    "dadVarInit": 4.0,
+    "stateTransitions": [],
+    "hasDance": false,
+    "pixelCamera": true
+}

@@ -1,0 +1,164 @@
+{  
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "BF idle dance",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "BF NOTE UP0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -29,
+                27
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "BF NOTE LEFT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                12,
+                -6
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "BF NOTE RIGHT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -38,
+                -7
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "BF NOTE DOWN0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -10,
+                -50
+            ]
+        },
+        {
+            "name": "singUPmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE UP MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -29,
+                27
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE LEFT MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                12,
+                24
+            ]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE RIGHT MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -30,
+                21
+            ]
+        },
+        {
+            "name": "singDOWNmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE DOWN MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -11,
+                -19
+            ]
+        },
+        {
+            "name": "hey",
+            "mode": "prefix",
+            "prefix": "BF HEY",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                7,
+                4
+            ]
+        },
+        {
+            "name": "firstDeath",
+            "mode": "prefix",
+            "prefix": "BF dies",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                37,
+                11
+            ]
+        },
+        {
+            "name": "deathLoop",
+            "mode": "prefix",
+            "prefix": "BF Dead Loop",
+            "framerate": 24,
+            "loop": true,
+            "offset": [
+                37,
+                5
+            ]
+        },
+        {
+            "name": "deathConfirm",
+            "mode": "prefix",
+            "prefix": "BF Dead confirm",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                37,
+                69
+            ]
+        },
+        {
+            "name": "scared",
+            "mode": "prefix",
+            "prefix": "BF idle shaking",
+            "framerate": 24,
+            "offset": [
+                -4,
+                0
+            ]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": false,
+    "dadVarInit": 4.0,
+    "isBF": true,
+    "stateTransitions": [],
+    "hasDance": false,
+    "flipX": true
+}

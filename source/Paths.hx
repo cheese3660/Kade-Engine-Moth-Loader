@@ -1,5 +1,9 @@
 package;
 
+import haxe.Exception;
+import haxe.Json;
+import haxe.DynamicAccess;
+import openfl.Assets;
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
 import openfl.utils.AssetType;
@@ -42,7 +46,11 @@ class Paths
 
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		return '$library:assets/$library/$file';
+		if (library != "mods") {
+			return '$library:assets/$library/$file';
+		} else {
+			return '$library:mods/$file';
+		}
 	}
 
 	inline static function getPreloadPath(file:String)
@@ -115,9 +123,10 @@ class Paths
 		return 'songs:assets/songs/${songLowercase}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function image(key:String, ?library:String)
+	inline static public function image(key:String, basePath:String="images", ?library:String)
 	{
-		return getPath('images/$key.png', IMAGE, library);
+		var p = getPath('$basePath/$key.png', IMAGE, library);
+		return p;
 	}
 
 	inline static public function font(key:String)
@@ -125,13 +134,35 @@ class Paths
 		return 'assets/fonts/$key';
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String)
+	inline static public function getSparrowAtlas(key:String, basePath:String="images", ?library:String)
 	{
-		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
+		
+		return FlxAtlasFrames.fromSparrow(image(key, basePath, library), file('$basePath/$key.xml', library));
+	}
+
+	// inline static public function characterJson(key:String, ?library:String)
+	// {
+	// 	return getPath('images/$key.json', TEXT, library);	
+	// }
+
+	//Returns a json file that contains the Flx Atlas, the image, and the json describing animation keys and such
+	static public function getCharacterJSON(key:String, basePath:String="images/characters", ?library:String) {
+		var jsonPath = file('$basePath/$key.json', TEXT, library);
+		trace(jsonPath);
+		var jsonText = "";
+		if (Assets.exists(jsonPath)) {
+			jsonText = Assets.getText(jsonPath);
+		}
+		var jsonDynamic:DynamicAccess<Dynamic> = Json.parse(jsonText);
+		var sparrowKey:String = key;
+		if (jsonDynamic.exists("atlas")) {
+			sparrowKey = jsonDynamic.get("atlas");
+		}
+		return new CharacterJSON(jsonDynamic, sparrowKey, basePath, library);
 	}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
-		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
+		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, "images", library), file('images/$key.txt', library));
 	}
 }

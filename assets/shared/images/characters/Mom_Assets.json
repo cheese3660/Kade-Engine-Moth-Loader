@@ -1,0 +1,51 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "Mom Idle",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "Mom Up Pose",
+            "framerate": 24,
+            "loop": false,
+            "offset": [14,71]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "Mom DOWN POSE",
+            "framerate": 24,
+            "loop": false,
+            "offset": [20,-160]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Mom Left Pose",
+            "framerate": 24,
+            "loop": false,
+            "offset": [250,-23]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Mom Pose Left",
+            "framerate": 24,
+            "loop": false,
+            "offset": [10, -60]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": true,
+    "dadVarInit": 4.0,
+    "isBF": false,
+    "stateTransitions": [
+
+    ],
+    "hasDance": false
+}

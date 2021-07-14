@@ -1,0 +1,55 @@
+{
+    "animations": [
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "spooky UP NOTE",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-20, 26]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "spooky DOWN note",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-130, -14]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "note sing left",
+            "framerate": 24,
+            "loop": false,
+            "offset": [130, -10]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "spooky sing right",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-50, -130]
+        },
+        {
+            "name": "danceLeft",
+            "mode": "indices",
+            "prefix": "spooky dance idle",
+            "indices": [0, 2, 6],
+            "framerate": 12,
+            "loop": false
+        }
+    ],
+    "startingAnimation": "danceRight",
+    "flipWhenPlayer": true,
+    "dadVarInit": 4.0,
+    "isBF": false,
+    "stateTransitions": [
+
+    ],
+    "hasDance": true,
+    "blockDanceOnPrefix": false,
+    "rightDance": "danceRight",
+    "leftDance": "danceLeft"
+}

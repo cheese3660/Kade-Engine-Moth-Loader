@@ -1,0 +1,51 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "monster idle",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "monster up note",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-20,50]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "monster down",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-30,-40]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Monster left note",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-30, 0]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Monster Right note",
+            "framerate": 24,
+            "loop": false,
+            "offset": [-51, 0]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": false,
+    "dadVarInit": 4.0,
+    "isBF": false,
+    "stateTransitions": [
+
+    ],
+    "hasDance": false
+}

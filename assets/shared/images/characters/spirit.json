@@ -1,0 +1,67 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "idle spirit_",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -220,
+                -280
+            ]
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "up_",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -220,
+                -240
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "right_",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -220,
+                -280
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "left_",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -200,
+                -280
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "spirit down_",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                170,
+                110
+            ]
+        }
+    ],
+    "startingAnimation": "idle",
+    "pixelCamera": true,
+    "antialiasing": false,
+    "flipWhenPlayer": true,
+    "isBF": false,
+    "dadVarInit": 4.0,
+    "stateTransitions": [],
+    "hasDance": false
+}

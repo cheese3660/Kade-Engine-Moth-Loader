@@ -107,7 +107,7 @@ class Caching extends MusicBeatState
         for (i in images)
         {
             var replaced = i.replace(".png","");
-            FlxG.bitmap.add(Paths.image("characters/" + replaced,"shared"));
+            FlxG.bitmap.add(Paths.image("characters/" + replaced, "images", "shared"));
             trace("cached " + replaced);
             done++;
         }
@@ -122,7 +122,7 @@ class Caching extends MusicBeatState
 
         trace("Finished caching...");
 
-        FlxG.switchState(new TitleState());
+        FlxG.switchState(new ModLoaderState());
     }
 
 }

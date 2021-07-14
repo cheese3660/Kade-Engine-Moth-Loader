@@ -1,0 +1,110 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "BF idle dance",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "BF NOTE UP0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -29,
+                27
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "BF NOTE LEFT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                12,
+                -6
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "BF NOTE RIGHT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -38,
+                -7
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "BF NOTE DOWN0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -10,
+                -50
+            ]
+        },
+        {
+            "name": "singUPmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE UP MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -29,
+                27
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE LEFT MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                12,
+                24
+            ]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE RIGHT MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -30,
+                21
+            ]
+        },
+        {
+            "name": "singDOWNmiss",
+            "mode": "prefix",
+            "prefix": "BF NOTE DOWN MISS",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -11,
+                -19
+            ]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": false,
+    "dadVarInit": 4.0,
+    "isBF": true,
+    "stateTransitions": [],
+    "hasDance": false,
+    "flipX": true
+}

@@ -1,0 +1,76 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "BF IDLE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "BF UP NOTE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "BF LEFT NOTE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "BF RIGHT NOTE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "BF DOWN NOTE",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUPmiss",
+            "mode": "prefix",
+            "prefix": "BF UP MISS",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singLEFTmiss",
+            "mode": "prefix",
+            "prefix": "BF LEFT MISS",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singRIGHTmiss",
+            "mode": "prefix",
+            "prefix": "BF RIGHT MISS",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singDOWNmiss",
+            "mode": "prefix",
+            "prefix": "BF DOWN MISS",
+            "framerate": 24,
+            "loop": false
+        }
+    ],
+    "startingAnimation": "idle",
+    "antialiasing": false,
+    "flipX": true,
+    "flipWhenPlayer": false,
+    "dadVarInit": 4.0,
+    "isBF": true,
+    "stateTransitions": [],
+    "hasDance": false,
+    "pixelCamera": true
+}

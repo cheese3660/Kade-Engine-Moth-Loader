@@ -1,0 +1,155 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "Pico Idle Dance",
+            "framerate": 24
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "pico Up note0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -29,
+                27
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "Pico Down Note0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                200,
+                -70
+            ]
+        },
+        {
+            "name": "singUPMiss",
+            "mode": "prefix",
+            "prefix": "pico Up note miss",
+            "framerate": 24,
+            "offset": [
+                -19,
+                67
+            ]
+        },
+        {
+            "name": "singDOWNMiss",
+            "mode": "prefix",
+            "prefix": "pico Down Note MISS",
+            "framerate": 24,
+            "offset": [
+                210,
+                -28
+            ]
+        }
+    ],
+    "animations-player": [
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Pico NOTE LEFT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                65,
+                9
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Pico Note Right0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -68,
+                -7
+            ]
+        },
+        {
+            "name": "singRIGHTMiss",
+            "mode": "prefix",
+            "prefix": "Pico Note Right Miss",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -60,
+                41
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "mode": "prefix",
+            "prefix": "Pico NOTE LEFT miss",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                62,
+                64
+            ]
+        }
+    ],
+    "animations-npc": [
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Pico Note Right0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                65,
+                9
+            ],
+            "flipX": true
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Pico NOTE LEFT0",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -68,
+                -7
+            ],
+            "flipX": true
+        },
+        {
+            "name": "singRIGHTMiss",
+            "mode": "prefix",
+            "prefix": "Pico NOTE LEFT miss",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -60,
+                41
+            ],
+            "flipX": true
+        },
+        {
+            "name": "singLEFTmiss",
+            "mode": "prefix",
+            "prefix": "Pico Note Right Miss",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                62,
+                64
+            ],
+            "flipX": true
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": true,
+    "dadVarInit": 4.0,
+    "isBF": false,
+    "stateTransitions": [],
+    "hasDance": false,
+    "flipX": true
+}

@@ -24,6 +24,8 @@ class OptionsMenu extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 
+	//List
+
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Gameplay", [
 			new DFJKOption(controls),
@@ -55,6 +57,7 @@ class OptionsMenu extends MusicBeatState
 			#if desktop
 			new FPSOption("Toggle the FPS Counter"),
 			new ReplayOption("View replays"),
+			new ViewMods("View loaded mods"),
 			#end
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),

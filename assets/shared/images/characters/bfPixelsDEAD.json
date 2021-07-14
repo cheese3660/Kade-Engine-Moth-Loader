@@ -1,0 +1,49 @@
+{
+    "animations": [
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "BF Dies pixel",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "firstDeath",
+            "mode": "prefix",
+            "prefix": "BF Dies pixel",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "deathLoop",
+            "mode": "prefix",
+            "prefix": "Retry Loop",
+            "framerate": 24,
+            "loop": true,
+            "offset": [
+                -37,
+                0
+            ]
+        },
+        {
+            "name": "deathConfirm",
+            "mode": "prefix",
+            "prefix": "RETRY CONFIRM",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -37,
+                0
+            ]
+        }
+    ],
+    "startingAnimation": "firstDeath",
+    "antialiasing": false,
+    "flipWhenPlayer": false,
+    "dadVarInit": 4.0,
+    "isBF": true,
+    "stateTransitions": [],
+    "hasDance": false,
+    "flipX": true,
+    "pixelCamera": true
+}

@@ -1,0 +1,45 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "Dad idle dance",
+            "framerate": 24
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "Dad Sing Note UP",
+            "framerate": 24,
+            "offset": [-6, 50]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "Dad Sing Note DOWN",
+            "framerate": 24,
+            "offset": [0, -30]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Dad Sing Note LEFT",
+            "framerate": 24,
+            "offset": [-10, 10]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Dad Sing Note RIGHT",
+            "framerate": 24,
+            "offset": [0, 27]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": true,
+    "dadVarInit": 6.1,
+    "isBF": false,
+    "stateTransitions": [
+    ],
+    "hasDance": false
+}

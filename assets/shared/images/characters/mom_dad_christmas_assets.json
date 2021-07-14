@@ -1,0 +1,105 @@
+{
+    "animations": [
+        {
+            "name": "idle",
+            "mode": "prefix",
+            "prefix": "Parent Christmas Idle",
+            "framerate": 24,
+            "loop": false
+        },
+        {
+            "name": "singUP",
+            "mode": "prefix",
+            "prefix": "Parent Up Note Dad",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -47,
+                24
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "mode": "prefix",
+            "prefix": "Parent Down Note Dad",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -31,
+                -29
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "mode": "prefix",
+            "prefix": "Parent Left Note Dad",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -30,
+                16
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "mode": "prefix",
+            "prefix": "Parent Right Note Dad",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -1,
+                -23
+            ]
+        },
+        {
+            "name": "singUP-alt",
+            "mode": "prefix",
+            "prefix": "Parent Up Note Mom",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -47,
+                24
+            ]
+        },
+        {
+            "name": "singDOWN-alt",
+            "mode": "prefix",
+            "prefix": "Parent Down Note Mom",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -30,
+                -27
+            ]
+        },
+        {
+            "name": "singLEFT-alt",
+            "mode": "prefix",
+            "prefix": "Parent Left Note Mom",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -30,
+                15
+            ]
+        },
+        {
+            "name": "singRIGHT-alt",
+            "mode": "prefix",
+            "prefix": "Parent Right Note Mom",
+            "framerate": 24,
+            "loop": false,
+            "offset": [
+                -1,
+                -24
+            ]
+        }
+    ],
+    "startingAnimation": "idle",
+    "flipWhenPlayer": true,
+    "isBF": false,
+    "dadVarInit": 4.0,
+    "stateTransitions": [],
+    "hasDance": false
+}
