@@ -236,10 +236,10 @@ class ModchartState
 	public static var luaSprites:Map<String,FlxSprite> = [];
 
 	function changeDadCharacter(id:String)
-	{				var olddadx = PlayState.dad.x;
-					var olddady = PlayState.dad.y;
+	{				var olddadx = PlayState.enemy.x;
+					var olddady = PlayState.enemy.y;
 					PlayState.instance.removeObject(PlayState.dad);
-					PlayState.dad = new Character(olddadx, olddady, id);
+					PlayState.enemy = new Character(olddadx, olddady, id);
 					PlayState.instance.addObject(PlayState.dad);
 					PlayState.instance.iconP2.animation.play(id);
 	}
