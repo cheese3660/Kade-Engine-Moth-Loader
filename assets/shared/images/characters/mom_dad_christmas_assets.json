@@ -101,5 +101,6 @@
     "isBF": false,
     "dadVarInit": 4.0,
     "stateTransitions": [],
-    "hasDance": false
+    "hasDance": false,
+    "offsetEnemy": [-500, 0]
 }

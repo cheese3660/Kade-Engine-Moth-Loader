@@ -53,26 +53,26 @@ class LoadingState extends MusicBeatState
 		add(gfDance);
 		add(logo);
 		
-		initSongsManifest().onComplete
-		(
-			function (lib)
-			{
-				callbacks = new MultiCallback(onLoad);
-				var introComplete = callbacks.add("introComplete");
-				checkLoadSong(getSongPath());
-				if (PlayState.SONG.needsVoices)
-					checkLoadSong(getVocalPath());
-				checkLibrary("shared");
-				if (PlayState.storyWeek > 0)
-					checkLibrary("week" + PlayState.storyWeek);
-				else
-					checkLibrary("tutorial");
+		// initSongsManifest().onComplete
+		// (
+		// 	function (lib)
+		// 	{
+		// 		callbacks = new MultiCallback(onLoad);
+		// 		var introComplete = callbacks.add("introComplete");
+		// 		checkLoadSong(getSongPath());
+		// 		if (PlayState.SONG.needsVoices)
+		// 			checkLoadSong(getVocalPath());
+		// 		checkLibrary("shared");
+		// 		if (PlayState.storyWeek > 0)
+		// 			checkLibrary("week" + PlayState.storyWeek);
+		// 		else
+		// 			checkLibrary("tutorial");
 				
-				var fadeTime = 0.5;
-				FlxG.camera.fade(FlxG.camera.bgColor, fadeTime, true);
-				new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
-			}
-		);
+		// 		var fadeTime = 0.5;
+		// 		FlxG.camera.fade(FlxG.camera.bgColor, fadeTime, true);
+		// 		new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
+		// 	}
+		// );
 	}
 	
 	function checkLoadSong(path:String)
@@ -134,15 +134,15 @@ class LoadingState extends MusicBeatState
 		FlxG.switchState(target);
 	}
 	
-	static function getSongPath()
-	{
-		return Paths.inst(PlayState.SONG.song);
-	}
+	// static function getSongPath()
+	// {
+	// 	return Paths.inst(PlayState.SONG.song);
+	// }
 	
-	static function getVocalPath()
-	{
-		return Paths.voices(PlayState.SONG.song);
-	}
+	// static function getVocalPath()
+	// {
+	// 	return Paths.voices(PlayState.SONG.song);
+	// }
 	
 	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false)
 	{
@@ -151,7 +151,7 @@ class LoadingState extends MusicBeatState
 	
 	static function getNextState(target:FlxState, stopMusic = false):FlxState
 	{
-		Paths.setCurrentLevel("week" + PlayState.storyWeek);
+		//Paths.setCurrentLevel("week" + PlayState.storyWeek);
 		#if NO_PRELOAD_ALL
 		var loaded = isSoundLoaded(getSongPath())
 			&& (!PlayState.SONG.needsVoices || isSoundLoaded(getVocalPath()))

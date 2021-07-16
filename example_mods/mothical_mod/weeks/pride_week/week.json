@@ -1,7 +1,13 @@
 {
     "name": "Pride!",
+    "logo": "pride_week_test_logo.png",
+    "sequence": [
+        {
+            "type": "song",
+            "location": "songs/satans_arrival"
+        }
+    ],
     "songs": [
         "songs/satans_arrival"
-    ],
-    "logo": "pride_week_test_logo.png"
+    ]
 }

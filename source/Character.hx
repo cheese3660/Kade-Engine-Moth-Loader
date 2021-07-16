@@ -21,6 +21,8 @@ class Character extends FlxSprite
 
 	public var jsonChar:CharacterJSON;
 
+	public var enemyOffset:Array<Int>;
+	public var enemyOffsetCamera:Array<Int>;
 
 	//Cached json character variables
 	var isBF:Bool=false;
@@ -56,7 +58,7 @@ class Character extends FlxSprite
 		jsonChar.addAnimations(this, isPlayer);
 		playAnim(jsonChar.getStartAnimation());
 		if (jsonChar.pixelCamera()) {
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			setGraphicSize(Std.int(width * PlayState.pixelZoom));
 			updateHitbox();
 		}
 		antialiasing = jsonChar.antialiasing();
@@ -68,7 +70,6 @@ class Character extends FlxSprite
 		{
 			flipX = !flipX;
 
-			// Doesn't flip for BF, since his are already in the right place???
 			if (jsonChar.flipWhenPlayer())
 			{
 				// var animArray
@@ -85,6 +86,8 @@ class Character extends FlxSprite
 				}
 			}
 		}
+		enemyOffset = jsonChar.enemyOffset();
+		enemyOffsetCamera = jsonChar.enemyOffsetCamera();
 	}
 
 	override function update(elapsed:Float)

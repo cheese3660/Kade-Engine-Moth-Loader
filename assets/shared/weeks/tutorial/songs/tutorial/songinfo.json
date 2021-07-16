@@ -1,0 +1,17 @@
+{
+    "name": "Tutorial",
+    "offset": 0,
+    "backgroundCharacter": "gf",
+    "player": "bf",
+    "hasEnemy": false,
+    "hasModChart": true,
+    "modchart": "modchart.lua",
+    "charts": {
+        "easy": "tutorial-easy",
+        "normal": "tutorial",
+        "hard": "tutorial-hard"
+    },
+    "song": "tutorial",
+    "hasVoices": false,
+    "hasDialog": false
+}

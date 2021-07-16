@@ -47,5 +47,6 @@
     "stateTransitions": [
 
     ],
-    "hasDance": false
+    "hasDance": false,
+    "offsetEnemy": [0, 100]
 }

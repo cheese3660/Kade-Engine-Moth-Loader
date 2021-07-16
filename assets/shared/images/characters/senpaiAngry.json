@@ -56,5 +56,7 @@
     "dadVarInit": 4.0,
     "stateTransitions": [],
     "hasDance": false,
-    "atlas": "senpai"
+    "atlas": "senpai",
+    "offsetEnemy": [150, 360],
+    "offsetEnemyCamera": [300, 0]
 }

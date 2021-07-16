@@ -13,6 +13,8 @@ class ModContribution {
                                                                         //They can be used to replace any asset in the base game (or other mods), but its kinda a clunky system, and for common enough swaps I might just add a seperate contribution type
                                                                         //They also are not recursive and just work by mapping one location to the mods location
                                                                         //The original asset needs "x:x/.../..." shit
+    public static inline var TYPE_NOTE_STYLE:ModContributionType = 4;
+    //public static inline var TYPE_STAGE:ModContributionType = 5;
     public var mod_path:String;
     public var contribution_type:ModContributionType;
     public var contribution_location:String; //A relative path within the mod, points to a folder
@@ -38,6 +40,8 @@ class ModContribution {
             checkContributionByPath(Paths.file('$mod_path/$contribution_location', TEXT, "mods"));
         case TYPE_ASSET_SWAPS:
             checkContributionByPath(Paths.file('$mod_path/$contribution_location/swapinfo.json', TEXT, "mods"));
+        case TYPE_NOTE_STYLE:
+            checkContributionByPath(Paths.file('$mod_path/$contribution_location/styleinfo.json', TEXT, "mods"));
         }
     }
 }

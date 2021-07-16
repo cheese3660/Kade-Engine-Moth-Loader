@@ -51,5 +51,6 @@
     "hasDance": true,
     "blockDanceOnPrefix": false,
     "rightDance": "danceRight",
-    "leftDance": "danceLeft"
+    "leftDance": "danceLeft",
+    "offsetEnemy": [0, 200]
 }

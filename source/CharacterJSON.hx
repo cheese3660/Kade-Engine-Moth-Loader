@@ -33,11 +33,11 @@ class CharacterJSON {
     var _frames_key:String;
     var _frames_base:String;
     var _frames_library:String;
-    public function new(d:DynamicAccess<Dynamic>,f1:String,f2:String,f3:String) {
+    public function new(d:DynamicAccess<Dynamic>,key:String,path:String,library:String) {
         jsonData = d;
-        _frames_key = f1;
-        _frames_base = f2;
-        _frames_library = f3;
+        _frames_key = key;
+        _frames_base = path;
+        _frames_library = library;
     }
 
     public function addAnimations(to:Character, isPlayer: Bool) {
@@ -176,6 +176,24 @@ class CharacterJSON {
 
     public function setDanceWhen():Array<DanceTransition> {
         var data:Dynamic = jsonData.get("setDancedWhen");
+        if (data != null) {
+            return data;
+        } else {
+            return [];
+        }
+    }
+
+    public function enemyOffset():Array<Int> {
+        var data:Dynamic = jsonData.get("enemyOffset");
+        if (data != null) {
+            return data;
+        } else {
+            return [];
+        }
+    }
+
+    public function enemyOffsetCamera():Array<Int> {
+        var data:Dynamic = jsonData.get("enemyOffsetCamera");
         if (data != null) {
             return data;
         } else {

@@ -87,9 +87,9 @@ class Replay
 	public function SaveReplay(notearray:Array<Dynamic>, judge:Array<String>, ana:Analysis)
 	{
 		var json = {
-			"songName": PlayState.SONG.song,
-			"songDiff": PlayState.storyDifficulty,
-			"noteSpeed": (FlxG.save.data.scrollSpeed > 1 ? FlxG.save.data.scrollSpeed : PlayState.SONG.speed),
+			"songName": PlayState.currentSongInfo.name,
+			"songDiff": PlayState.currentSongDifficulty,
+			"noteSpeed": (FlxG.save.data.scrollSpeed > 1 ? FlxG.save.data.scrollSpeed : PlayState.currentSongChart.speed),
 			"isDownscroll": FlxG.save.data.downscroll,
 			"songNotes": notearray,
 			"songJudgements": judge,
@@ -104,9 +104,9 @@ class Replay
 		var time = Date.now().getTime();
 
 		#if sys
-		File.saveContent("assets/replays/replay-" + PlayState.SONG.song + "-time" + time + ".kadeReplay", data);
+		File.saveContent("assets/replays/replay-" + PlayState.currentSongInfo.name + "-time" + time + ".kadeReplay", data);
 
-		path = "replay-" + PlayState.SONG.song + "-time" + time + ".kadeReplay"; // for score screen shit
+		path = "replay-" + PlayState.currentSongInfo.name + "-time" + time + ".kadeReplay"; // for score screen shit
 
 		LoadFromJSON();
 

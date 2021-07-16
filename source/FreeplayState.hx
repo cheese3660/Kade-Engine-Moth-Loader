@@ -20,11 +20,12 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var songs:Array<SongMetadata> = [];
+	// var songs:Array<SongJSON> = [];
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
-	var curDifficulty:Int = 1;
+	var curDifficulty:Int = 0;
+	var difficultyString:String = "";
 
 	var scoreText:FlxText;
 	var comboText:FlxText;
@@ -42,11 +43,11 @@ class FreeplayState extends MusicBeatState
 	{
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 
-		for (i in 0...initSonglist.length)
-		{
-			var data:Array<String> = initSonglist[i].split(':');
-			songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
-		}
+		// for (i in 0...initSonglist.length)
+		// {
+		// 	var data:Array<String> = initSonglist[i].split(':');
+		// 	songs.push(new SongMetadata(data[0], Std.parseInt(data[2]), data[1]));
+		// }
 
 		/* 
 			if (FlxG.sound.music != null)
@@ -77,14 +78,14 @@ class FreeplayState extends MusicBeatState
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
 
-		for (i in 0...songs.length)
+		for (i in 0...SongList.songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false, true);
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, SongList.songs[i].name, true, false, true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
 
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			var icon:HealthIcon = new HealthIcon(SongList.songs[i].player);
 			icon.sprTracker = songText;
 
 			// using a FlxGroup is too much fuss!
@@ -148,25 +149,25 @@ class FreeplayState extends MusicBeatState
 		super.create();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String)
-	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter));
-	}
+	// public function addSong(songName:String, weekNum:Int, songCharacter:String)
+	// {
+	// 	songs.push(new SongMetadata(songName, weekNum, songCharacter));
+	// }
 
-	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
-	{
-		if (songCharacters == null)
-			songCharacters = ['dad'];
+	// public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
+	// {
+	// 	if (songCharacters == null)
+	// 		songCharacters = ['dad'];
 
-		var num:Int = 0;
-		for (song in songs)
-		{
-			addSong(song, weekNum, songCharacters[num]);
+	// 	var num:Int = 0;
+	// 	for (song in songs)
+	// 	{
+	// 		addSong(song, weekNum, songCharacters[num]);
 
-			if (songCharacters.length != 1)
-				num++;
-		}
-	}
+	// 		if (songCharacters.length != 1)
+	// 			num++;
+	// 	}
+	// }
 
 	override function update(elapsed:Float)
 	{
@@ -233,23 +234,18 @@ class FreeplayState extends MusicBeatState
 		if (accepted)
 		{
 			// adjusting the song name to be compatible
-			var songFormat = StringTools.replace(songs[curSelected].songName, " ", "-");
-			switch (songFormat) {
-				case 'Dad-Battle': songFormat = 'Dadbattle';
-				case 'Philly-Nice': songFormat = 'Philly';
-			}
+			// var songFormat = StringTools.replace(songs[curSelected].name, " ", "-");
+			// switch (songFormat) {
+			// 	case 'Dad-Battle': songFormat = 'Dadbattle';
+			// 	case 'Philly-Nice': songFormat = 'Philly';
+			// }
 			
-			trace(songs[curSelected].songName);
-
-			var poop:String = Highscore.formatSong(songFormat, curDifficulty);
-
-			trace(poop);
+			// trace(songs[curSelected].name);
 			
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName);
-			PlayState.isStoryMode = false;
-			PlayState.storyDifficulty = curDifficulty;
-			PlayState.storyWeek = songs[curSelected].week;
-			trace('CUR WEEK' + PlayState.storyWeek);
+			PlayState.currentSongInfo = SongList.songs[curSelected];
+			PlayState.inStoryMode = false;
+			PlayState.currentSongDifficulty = difficultyString;
+			PlayState.currentWeek = "";
 			LoadingState.loadAndSwitchState(new PlayState());
 		}
 	}
@@ -259,23 +255,21 @@ class FreeplayState extends MusicBeatState
 		curDifficulty += change;
 
 		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
+			curDifficulty = SongList.songs[curSelected].difficultyOrder.length-1;
+		if (curDifficulty >= SongList.songs[curSelected].difficultyOrder.length)
 			curDifficulty = 0;
 
+		difficultyString = SongList.songs[curSelected].difficultyOrder[curDifficulty];
+
 		// adjusting the highscore song name to be compatible (changeDiff)
-		var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
-		switch (songHighscore) {
-			case 'Dad-Battle': songHighscore = 'Dadbattle';
-			case 'Philly-Nice': songHighscore = 'Philly';
-		}
-		
+		var songHighscore = SongList.songs[curSelected].name;
+	
 		#if !switch
-		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
-		combo = Highscore.getCombo(songHighscore, curDifficulty);
+		intendedScore = Highscore.getScore(songHighscore, difficultyString);
+		combo = Highscore.getCombo(songHighscore, difficultyString);
 		#end
 
-		diffText.text = CoolUtil.difficultyFromInt(curDifficulty).toUpperCase();
+		diffText.text = DifficultyList.getDifficulty(difficultyString).name.toUpperCase();
 	}
 
 	function changeSelection(change:Int = 0)
@@ -290,28 +284,24 @@ class FreeplayState extends MusicBeatState
 		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = songs.length - 1;
-		if (curSelected >= songs.length)
+			curSelected = SongList.songs.length - 1;
+		if (curSelected >= SongList.songs.length)
 			curSelected = 0;
 
 		// selector.y = (70 * curSelected) + 30;
 		
 		// adjusting the highscore song name to be compatible (changeSelection)
 		// would read original scores if we didn't change packages
-		var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
-		switch (songHighscore) {
-			case 'Dad-Battle': songHighscore = 'Dadbattle';
-			case 'Philly-Nice': songHighscore = 'Philly';
-		}
+		var songHighscore = SongList.songs[curSelected].name;
 
 		#if !switch
-		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
-		combo = Highscore.getCombo(songHighscore, curDifficulty);
+		intendedScore = Highscore.getScore(songHighscore, difficultyString);
+		combo = Highscore.getCombo(songHighscore, difficultyString);
 		// lerpScore = 0;
 		#end
 
 		#if PRELOAD_ALL
-		FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
+		FlxG.sound.playMusic(SongList.songs[curSelected].getInstrumental(), 0);
 		#end
 
 		var bullShit:Int = 0;

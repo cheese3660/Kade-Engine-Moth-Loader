@@ -1,0 +1,13 @@
+{
+    "name": "tutorial",
+    "logo": "logo",
+    "sequence": [
+        {
+            "type": "song",
+            "song": "songs/tutorial"
+        }
+    ],
+    "songs": [
+        "songs/tutorial"
+    ]
+}

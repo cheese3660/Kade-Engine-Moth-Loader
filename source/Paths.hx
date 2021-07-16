@@ -65,9 +65,9 @@ class Paths
 		return getPath(file, type, library);
 	}
 
-	inline static public function lua(key:String,?library:String)
+	inline static public function lua(key:String,basePath: String="data",?library:String)
 	{
-		return getPath('data/$key.lua', TEXT, library);
+		return getPath('$basePath/$key.lua', TEXT, library);
 	}
 
 	inline static public function luaImage(key:String, ?library:String)
@@ -85,21 +85,20 @@ class Paths
 		return getPath('data/$key.xml', TEXT, library);
 	}
 
-	inline static public function json(key:String, ?library:String)
+	inline static public function json(key:String, basePath:String="data", ?library:String)
 	{
-		return getPath('data/$key.json', TEXT, library);
+		return getPath('$basePath/$key.json', TEXT, library);
 	}
 
-	static public function sound(key:String, ?library:String)
+	static public function sound(key:String, basePath="sounds", ?library:String)
 	{
-		return getPath('sounds/$key.$SOUND_EXT', SOUND, library);
+		return getPath('$basePath/$key.$SOUND_EXT', SOUND, library);
 	}
 
 	inline static public function soundRandom(key:String, min:Int, max:Int, ?library:String)
 	{
-		return sound(key + FlxG.random.int(min, max), library);
+		return sound(key + FlxG.random.int(min, max), "sounds", library);
 	}
-
 	inline static public function music(key:String, ?library:String)
 	{
 		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
@@ -165,6 +164,20 @@ class Paths
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, "images", library), file('images/$key.txt', library));
+	}
+
+	static public function getKeyPathLibraryTriple(origKey:String, origPath:String, origLibrary:String) {
+        var idx = 0;
+        if ((idx = origKey.indexOf(':')) >= 0) {
+            var absLibrary = origKey.substr(0,idx);
+            var rest = origKey.substr(idx+1);
+            var lastSlash = origKey.indexOf('/');
+            var absPath = rest.substr(0, lastSlash);
+            var absValue = rest.substr(lastSlash+1);
+            return [absValue, absPath, absLibrary];
+        } else {
+            return [origKey, origPath, origLibrary];
+        }
 	}
 
 }

@@ -151,5 +151,7 @@
     "isBF": false,
     "stateTransitions": [],
     "hasDance": false,
-    "flipX": true
+    "flipX": true,
+    "offsetEnemy": [0, 300],
+    "offsetEnemyCamera": [600, 0]
 }

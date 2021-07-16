@@ -41,5 +41,6 @@
     "isBF": false,
     "stateTransitions": [
     ],
-    "hasDance": false
+    "hasDance": false,
+    "offsetEnemyCamera": [400, 0]
 }
